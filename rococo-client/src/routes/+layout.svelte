@@ -32,7 +32,7 @@
 		const currentUrl = new URL(window.location.href);
 		// required check for local development (modes: dev and docker)
 		await checkCurrentUrlAndRedirectToPreConfiguredUrl(currentUrl);
-		if (currentUrl.pathname === "/authorized") {
+		if (currentUrl.pathname === "/authorized" || currentUrl.pathname === "/logout") {
 			return;
 		}
 		sessionStore.update((prevState) => {

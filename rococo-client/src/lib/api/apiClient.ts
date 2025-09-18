@@ -2,7 +2,7 @@ import type {ArtistType, NewArtistType} from "$lib/types/Artist";
 import type {NewPaintingType, PaintingType} from "$lib/types/Painting";
 import type {MuseumType, NewMuseumType} from "$lib/types/Museum";
 import type {UserType} from "$lib/types/User";
-import {clearSession} from "$lib/api/authUtils";
+import {clearSession, idTokenFromLocalStorage} from "$lib/api/authUtils";
 
 const BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
 
@@ -159,7 +159,7 @@ const commonFetch = async (
         "Content-Type": "application/json",
     };
     if(authenticated) {
-        const token= localStorage.getItem("id_token");
+        const token = idTokenFromLocalStorage();
         if(token) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore

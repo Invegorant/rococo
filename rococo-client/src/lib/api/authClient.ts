@@ -15,17 +15,4 @@ export const authClient = {
         }
         return response.json();
     },
-    logout: async() => {
-        const response = await fetch(`${BASE_URL}/logout`, {
-            method: "GET",
-            credentials: "include",
-            headers: {
-                "Content-type": "application/json",
-                "Authorization": `Bearer ${localStorage.getItem("id_token")}`,
-            }
-        });
-        if (!response.ok) {
-            throw new Error("Failed logout");
-        }
-    }
 }

@@ -75,7 +75,6 @@ sourceSets {
 
 idea {
     module {
-
         generatedSourceDirs = [file("$buildDir/generated/sources/proto/main/java")]
     }
 }
